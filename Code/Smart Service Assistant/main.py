@@ -14,7 +14,7 @@ from IPython.display import Image
 import requests
 rcParams['figure.figsize'] = 8, 16
 
-#Storing datas.
+#Internal storage to store new details as well as a dummy data to check with initial test Cases.
 
 listOfNames={
     '9188890350': 'R Abhiramya'
@@ -38,7 +38,7 @@ listAdhaar={
 listGender={}
 
 
-def assignData(adhaarNum,rationCardNum,mobileNum,name,email,password,gender):
+def assignData(adhaarNum,rationCardNum,mobileNum,name,email,password,gender): # Function to store real time data to an internal database as well as online API call as JSON
     listMobile.append(mobileNum)
     listAdhaar[mobileNum]=adhaarNum
     listPassword[mobileNum]=password
@@ -62,6 +62,8 @@ def assignData(adhaarNum,rationCardNum,mobileNum,name,email,password,gender):
     }
 
     response = requests.request("PUT", url, headers=headers, data=payload)
+
+#Function to create new account in Kerala Civil Supplies Online citizen Login portal
 
 def createNewAccount(name='Abhiramya',userID='Prad_1969',email='abhiramya@gmail.com',password='Abhiramya@1',adhaarNum='829197161833',rationCardNum='1422055492',mobileNum='9074568912'):
     driver = webdriver.Chrome()     #Creating object instance from Selenium Chrome driver which is a browser automation tool.
@@ -144,7 +146,7 @@ def createNewAccount(name='Abhiramya',userID='Prad_1969',email='abhiramya@gmail.
                     time.sleep(10)
 
 
-def sendSuccess(userID,password):
+def sendSuccess(userID,password):   #Successful account creation message to the USER
     count = 0
     while True and count == 0:
         whatsappIcon = pyautogui.locateCenterOnScreen(r'Photos/Whatsapp_Icon.png', confidence=0.7)
@@ -167,7 +169,7 @@ def sendSuccess(userID,password):
                     time.sleep(2)
                     waitForResponse()
 
-def sendSuccessLogin():
+def sendSuccessLogin(): #Sending status of succesfull logging to the portal
     count = 0
     while True and count == 0:
         whatsappIcon = pyautogui.locateCenterOnScreen(r'Photos/Whatsapp_Icon.png', confidence=0.7)
@@ -191,7 +193,7 @@ def sendSuccessLogin():
                     waitForResponse()
 
 
-def waitForResponse():
+def waitForResponse():  #Function to wait on another chathead to receive new notification in whatsapp from USER
     count = 0
     while True and count == 0:
         whatsappDefault = pyautogui.locateCenterOnScreen(r'Photos/Whatsapp_Default.png', confidence=0.7)
@@ -201,7 +203,7 @@ def waitForResponse():
             count=1
             clickUser()
 
-def waitForNewMsg():
+def waitForNewMsg():    #Function to click on new message when new user is send new messages
     count = 0
     whatsappNotification = None
     while True and count == 0:
@@ -215,7 +217,7 @@ def waitForNewMsg():
 
 
 
-def readStringFromUser():
+def readStringFromUser():  # Raw string reading from the USER whatsapp message.
     count = 0
     while True and count == 0:
         whatsappDefault = pyautogui.locateCenterOnScreen(r'Photos/Whatsapp_Default.png', confidence=0.7)
@@ -236,7 +238,7 @@ def readStringFromUser():
                     return message
 
 
-def readingUserDetails():
+def readingUserDetails():       #Function to read the User details which should be numeric.
     count = 0
     while True and count == 0:
         whatsappDefault = pyautogui.locateCenterOnScreen(r'Photos/Whatsapp_Default.png', confidence=0.7)
@@ -276,7 +278,7 @@ def readingUserDetails():
 
             if count3==1:
                 count = 1
-def loginToPortal(userID='username',password='password',mobileNum=9443355647):
+def loginToPortal(userID='username',password='password',mobileNum=9443355647): #Function to login to PDS portal
     driver = webdriver.Chrome()  # Creating object instance from Selenium Chrome driver which is a browser automation tool.
     driver.maximize_window()  # Maximize window
     driver.get(r'https://ecitizen.civilsupplieskerala.gov.in/index.php/c_login')
@@ -339,7 +341,7 @@ def loginToPortal(userID='username',password='password',mobileNum=9443355647):
                                                 time.sleep(2)
                                                 loginToPortal(userID, password, mobileNum)
 
-def detectDetailsFromAdhaar(whatsappSendmsg,mobileNum):
+def detectDetailsFromAdhaar(whatsappSendmsg,mobileNum):  # Optical Character Recognition from an image and extract the informations from an image and stored on the database and cloud
     Image("test2.png")
     reader = easyocr.Reader(['en'])
     output = reader.readtext('test2.png')
@@ -375,7 +377,7 @@ def detectDetailsFromAdhaar(whatsappSendmsg,mobileNum):
 
 
 
-def sendMessage(message):
+def sendMessage(message): # Function to reply Accordingly to the messages send by the User
     count=0
     while True and count == 0:
         whatsappSendmsg = pyautogui.locateCenterOnScreen(r'Photos/Whatsapp_Sendmsg.png', confidence=0.7)
@@ -542,7 +544,7 @@ def sendMessage(message):
             waitForResponse()
 
 
-def readMessage():
+def readMessage(): #Function that reads the message send by the USER and passed to the sendmesssage( message ) function
     count = 0
     whatsappReadmsg=None
     while True and count == 0:
@@ -557,7 +559,7 @@ def readMessage():
             sendMessage(message.lower())
             count = 1
 
-def clickUser():
+def clickUser():  # Function to click on the authorized USER chat head.
     count=0
     whatsappNotification=None
     while True and count == 0:
@@ -572,7 +574,7 @@ def clickUser():
 
 
 
-def openWhatsapp():
+def openWhatsapp(): # Function to open whatsapp beta application
     count=0
     while True and count==0:
         whatsappIcon=pyautogui.locateCenterOnScreen(r'Photos/Whatsapp_Icon.png', confidence=0.7)
@@ -582,6 +584,5 @@ def openWhatsapp():
             count=1
             clickUser()
 
-openWhatsapp()
-#createNewAccount()
-#loginToPortal()
+openWhatsapp() # Beginning of the Project to open Whatsapp from UI
+
