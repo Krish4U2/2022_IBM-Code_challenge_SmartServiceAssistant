@@ -9,4 +9,11 @@ Here comes the use of Smart Service Assistant, a chatbot specially built to simp
 ### Install Easy OCR
     pip install easyocr
     
-    
+## Tech Stack
+Selenium Web Driver
+Python
+WhatsApp Beta
+Optical Character Recognition
+
+## Flowchart
+
