@@ -10,6 +10,13 @@ Here comes the use of Smart Service Assistant, a chatbot specially built to simp
     pip install easyocr
 ### Install clipboard    
     pip install clipboard
+### Install PyAutoGUI     
+    pip install PyAutoGUI
+### Install selenium     
+    pip install selenium   
+### Install pytesseract    
+    pip install pytesseract
+    
     
 ## Tech Stack
 Selenium Web Driver,
