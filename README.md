@@ -18,6 +18,8 @@ The chatbot can bes used to create accounts , fill forms and it even simplifies 
     pip install selenium   
 ### Install pytesseract    
     pip install pytesseract
+### Install OpenCV    
+    pip install opencv-python
     
     
 ## Tech Stack
