@@ -8,12 +8,16 @@ Here comes the use of Smart Service Assistant, a chatbot specially built to simp
 ## Installation 
 ### Install Easy OCR
     pip install easyocr
+### Install clipboard    
+    pip install clipboard
     
 ## Tech Stack
-Selenium Web Driver
-Python
-WhatsApp Beta
-Optical Character Recognition
+Selenium Web Driver,
+Python,
+WhatsApp Beta,
+Optical Character Recognition,
 
 ## Flowchart
 ![alt text](https://github.com/Krish4U2/2022_IBM-Code_challenge_SmartServiceAssistant/blob/main/flowchart.png)
+
+## Functional with multiple Services
