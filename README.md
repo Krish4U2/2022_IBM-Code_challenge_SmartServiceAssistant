@@ -16,4 +16,4 @@ WhatsApp Beta
 Optical Character Recognition
 
 ## Flowchart
-
+![alt text](https://github.com/Krish4U2/2022_IBM-Code_challenge_SmartServiceAssistant/blob/main/flowchart.png)
